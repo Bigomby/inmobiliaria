@@ -1,0 +1,84 @@
+= Enunciado
+
+== Objetivo
+
+Una inmobiliaria desea un programa que permita automatizar el registro de
+datos de propietarios y sus inmuebles.
+
+El programa debe permitir registrar:
+
+* Propietarios:
+  ** Nombre
+  ** Identificación
+  ** Teléfono
+  ** Email
+  ** Dirección
+* Inmuebles:
+  ** Código de inmueble
+    *** 1: Casa
+    *** 2: Apartamento
+    *** 3: Oficina
+  ** Número de habitaciones (sólo para casa o apartamento)
+  ** Número de divisiones (sólo para oficina)
+  ** Número de baños
+  ** Dirección
+  ** Barrio
+  ** Tipo de negocio
+    *** 1: Arriendo
+    *** 2: Venta
+  ** Valor del Inmueble
+
+== Indicaciones y funcionalidades
+
+El sistema debe contar con un menú para realizar las siguientes acciones:
+
+* *Registrar un propietario*: Debe verificar que el usuario a ingresar no
+exista en el sistema, teniendo en cuenta la identificación.
+* *Registrar un inmueble*: Al registrar un inmueble, primero pida la
+identificación del propietario. Si éste no se encuentra guardado proceda a pedir
+los datos del propietario y luego los del inmueble, de lo contrario solo pida
+los del inmueble.
+* *Generar reporte de inmuebles*: Es un listado en pantalla y en un archivo
+con los datos de los inmuebles filtrados según el tipo de inmueble y tipo de
+negocio. Es decir que el usuario escoja el tipo de inmueble (Casa, Apartamento
+u Oficina), el tipo de negocio (Arriendo o Venta) y el programa liste en
+pantalla y cree un archivo con los inmuebles que tengan
+esas características.
++
+El listado debe salir ordenado descendentemente según el valor del inmueble.
+* *Importar un archivo con un listado de datos de propietarios*: Para
+esta actividad, usted creara un archivo de texto de unos propietarios
+y el programa debe leerlo y anexarlos a los ya existentes, de existir un
+propietario este no debe agregarse.
+* *Guardar*: Esta opción debe permitir guardar en los archivos la información
+que está en los vectores.
+* *Salir*: Su programa debe terminar.
+
+NOTE: Recuerde que su programa cuando inicie debe cargar toda la información
+automáticamente.
+
+NOTE: Debe usar funciones, la librería vector y archivos.
+
+NOTE: Agregue una funcionalidad que crea que pueda mejorar este programa.
+
+== Realización
+
+El programa está dividido en 3 módulos:
+
+* *Data* (`src/data`): Contiene las definiciones de los datos que se usan en
+el programa: _Owner_ (propietario) y _Property_ (inmueble). También se definen
+dos _enum_ para indicar el tipo de negocio y el tipo de inmueble.
+* *Database* (`src/database`): Contiene el código para guardar un vector como
+CSV y viceversa.
+* *Menu* (`src/menu`): Contiene las funciones que muestran y reciben información
+mediante menús por la terminal.
+
+En el fichero `main.cpp` se encuentra la lógica para mostrar el menú y llamar
+a las distintas funciones de otros módulos.
+
+NOTE: Se pueden encontrar explicaciones de qué hace cada función en los ficheros
+de cabecera (`.hpp`).
+
+WARNING: El programa tal como está especificado en el enunciado no está
+completo ya que falta los filtros para los reportes y almacenarlo en un fichero
+(ahora sólo se muestra por pantalla).
